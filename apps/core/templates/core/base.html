@@ -1,0 +1,25 @@
+{% load static %}
+{% load django_htmx %}
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  {% htmx_script %}
+  <title>{% block title %}{% endblock %}</title>
+</head>
+<body hx-headers='{"x-csrftoken": "{{ csrf_token }}"}'>
+  {% block content %}{% endblock %}
+
+<button hx-get="{% url 'account_login' %}" hx-target="#result">
+    Click me
+</button>
+
+<div id="result"></div>
+
+<div></div>
+
+</body>
+</html>
