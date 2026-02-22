@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     'django_htmx',
     'tailwind',
     'apps.theme.apps.ThemeConfig',
+    'django_browser_reload',
 
     # Allauth
     'allauth',
@@ -50,11 +51,15 @@ MIDDLEWARE = [
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 
-    # Django-htmx
+    # Django - HTMX
     "django_htmx.middleware.HtmxMiddleware",
 
     # Allauth
     "allauth.account.middleware.AccountMiddleware",
+
+    # Django - Tailwind
+    "django_browser_reload.middleware.BrowserReloadMiddleware",
+
 ]
 
 ROOT_URLCONF = 'project.urls'
@@ -108,4 +113,4 @@ STATIC_URL = 'static/'
 LOGIN_REDIRECT_URL = '/'
 LOGOUT_REDIRECT_URL = '/'
 
-TAILWIND_APP_NAME = 'theme'
+TAILWIND_APP_NAME = 'apps.theme'
